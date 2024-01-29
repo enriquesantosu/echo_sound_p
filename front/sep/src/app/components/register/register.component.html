@@ -1,0 +1,45 @@
+<app-carrousel></app-carrousel>
+
+<section>
+  <div class="box-1">
+    <div class="box-2">
+      <div class="d-flex justify-content-center">
+        <p class="formTitle" style="color: white;">User registration form</p>
+      </div>
+      <form [formGroup]="userForm" (ngSubmit)="formSubmit()">
+        <div>
+          <label for="" class="form-label mb-1" style="color: white;">Name</label>
+          <input formControlName="name" type="text" class="form-control">
+          <div *ngIf="userForm.get('name')?.hasError('pattern') && userForm.get('name')?.touched"
+            class="fw-bold text-danger">Invalid name</div>
+        </div>
+        <div>
+          <label for="" class="form-label mb-1 mt-3" style="color: white;">Last Name</label>
+          <input formControlName="last_name" type="text" class="form-control">
+          <div *ngIf="userForm.get('last_name')?.hasError('pattern') && userForm.get('last_name')?.touched"
+            class="fw-bold text-danger">Invalid name</div>
+        </div>
+        <div>
+          <label for="" class="form-label mb-1 mt-3" style="color: white;">Email</label>
+          <input formControlName="email" type="email" class="form-control">
+          <div *ngIf="userForm.get('email')?.hasError('pattern') && userForm.get('email')?.touched"
+            class="fw-bold text-danger">Invalid email</div>
+        </div>
+        <div>
+          <label for="" class="form-label mb-1 mt-3" style="color: white;">Password</label>
+          <input formControlName="password" type="password" class="form-control">
+          <div *ngIf="userForm.get('password')?.hasError('pattern') && userForm.get('password')?.touched"
+            class="fw-bold text-danger">Invalid password</div>
+        </div>
+        <div>
+          <label for="" class="form-label mb-1 mt-3" style="color: white;">Confirm Password</label>
+          <input class="form-control" type="password" #passwordConfirm (input)="verifyPassword($event)">
+
+          <div class="d-none mt-3 alert alert-danger" #passwordAlert>No password match</div>
+        </div>
+        <button [disabled]="!userForm.valid || !passwordMatch" type="submit"
+          class="btn btn-dark w-100 fw-bold mt-3">Create User</button>
+      </form>
+    </div>
+  </div>
+</section>
