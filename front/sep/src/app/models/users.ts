@@ -4,11 +4,15 @@ export class User {
   last_name: string;
   email: string;
   password: number;
+  role?: string;
+  active?: string
 
-  constructor(name: string, last_name: string, email: string, password: number) {
+  constructor(name: string, last_name: string, email: string, password: number, role: string, active: string) {
     this.name = name;
     this.last_name = last_name;
     this.email = email;
     this.password = password;
+    this.role = role;
+    this.active = active;
   }
 }

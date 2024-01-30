@@ -1,3 +1,26 @@
-<p>login works!</p>
+<!-- <app-carrousel></app-carrousel> -->
 
-<app-carrousel></app-carrousel>
+<section>
+  <div class="box-1">
+    <div class="box-2">
+      <div class="d-flex justify-content-center">
+        <p class="formTitle" style="color: white;">User registration form</p>
+      </div>
+      <form [formGroup]="userForm" (ngSubmit)="formSubmit()">
+        <div>
+          <label for="" class="form-label mb-1 mt-3" style="color: white;">Email</label>
+          <input formControlName="email" type="email" class="form-control" #email>
+          <div *ngIf="userForm.get('email')?.hasError('pattern') && userForm.get('email')?.touched"
+            class="fw-bold text-danger">Invalid email</div>
+        </div>
+        <div>
+          <label for="" class="form-label mb-1 mt-3" style="color: white;">Password</label>
+          <input formControlName="password" type="password" class="form-control" #password>
+          <div *ngIf="userForm.get('password')?.hasError('pattern') && userForm.get('password')?.touched"
+            class="fw-bold text-danger">Invalid password</div>
+        </div>
+        <button [disabled]="!userForm.valid" type="submit" class="btn btn-dark w-100 fw-bold mt-3">Log in</button>
+      </form>
+    </div>
+  </div>
+</section>

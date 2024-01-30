@@ -1,5 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsersService } from 'src/app/services/users.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -12,17 +15,16 @@ export class RegisterComponent {
 
   passwordMatch = false;
 
+  userForm: FormGroup;
+
   @ViewChild('passwordConfirm') passwordConfirm!: ElementRef
   @ViewChild('passwordAlert') passwordAlert!: ElementRef
 
   regexString = /^[a-zA-Z\s]+$/
-  regexNumber = /^[0-9]+$/
   regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
   regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/
 
-  userForm: FormGroup;
-
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private _userServices: UsersService, private router: Router) {
 
     this.userForm = this.fb.group({
       name: ['', [Validators.required, Validators.pattern(this.regexString)]],
@@ -32,11 +34,35 @@ export class RegisterComponent {
     })
   }
 
+
   formSubmit() {
-    console.log(this.userForm)
+
+    console.log(this.userForm.value)
+
+    this._userServices.createUser(this.userForm.value).subscribe(apiResponse => {
+      console.log(this.userForm)
+      console.log('User created')
+
+      Swal.fire(
+        'Good job!',
+        'You are now registered on our platform',
+        'success'
+      )
+
+      setTimeout(() => {
+        this.router.navigate(['/login'])
+      }, 2000);
+
+    }, error => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid form submission',
+        iconColor: '#ff0d0d'
+      })
+    })
   }
 
-  verifyPassword(event: Event) {
+  verifyPassword(event?: Event) {
 
     let passwordValue1 = this.userForm.get('password')?.value
     let passwordValue2 = this.passwordConfirm.nativeElement.value

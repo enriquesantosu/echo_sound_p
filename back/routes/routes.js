@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const concertControllers = require('../controllers/concertControllers');
-const userControllers = require('../controllers/userControllers')
+const userControllers = require('../controllers/userControllers');
+const sessionControllers = require('../controllers/sessionControllers');
 
 router.post('/post_concert', concertControllers.createConcert);
 router.get('/get_concerts', concertControllers.getConcerts);
@@ -18,5 +19,6 @@ router.put('/update_user/:id', userControllers.updateUser);
 router.delete('/delete_user/:id', userControllers.deleteUser);
 
 
+router.post('/user_login', sessionControllers.userLogin);
 
 module.exports = router;
