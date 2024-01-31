@@ -3,6 +3,7 @@ const router = express.Router();
 const concertControllers = require('../controllers/concertControllers');
 const userControllers = require('../controllers/userControllers');
 const sessionControllers = require('../controllers/sessionControllers');
+const mdjwt = require('../middleware/jwt')
 
 router.post('/post_concert', concertControllers.createConcert);
 router.get('/get_concerts', concertControllers.getConcerts);

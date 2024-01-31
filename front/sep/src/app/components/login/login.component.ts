@@ -16,8 +16,8 @@ export class LoginComponent {
   regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
   regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/
 
-  // @ViewChild('email') email!: ElementRef
-  // @ViewChild('password') password!: ElementRef
+  @ViewChild('email') email!: ElementRef
+  @ViewChild('password') password!: ElementRef
 
   constructor(private fb: FormBuilder, private _sessionServices: SessionService, private router: Router) {
     this.userForm = this.fb.group({
@@ -26,13 +26,18 @@ export class LoginComponent {
     })
   }
 
+
   formSubmit() {
+
+    console.log('form submit fired')
 
     console.log(this.userForm.value)
 
-    this._sessionServices.userLogin(this.userForm.value).subscribe(apiResponse => {
+    this._sessionServices.userLogin(this.userForm.value).subscribe((apiResponse: any) => {
       console.log(apiResponse)
       console.log(this.userForm)
+
+      console.log('Login successful!')
 
       Swal.fire(
         'Good job!',
@@ -45,7 +50,6 @@ export class LoginComponent {
       }, 2000);
 
     }, error => {
-
       console.log(error)
 
       Swal.fire({
