@@ -26,7 +26,7 @@ const ConcertSchema = mongoose.Schema({
         required: true
     },
     active: {
-        type: String,
+        type: Boolean,
         required: true
     },
     date_created: {

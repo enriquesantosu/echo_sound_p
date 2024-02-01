@@ -1,3 +1,115 @@
+<!-- <section style="background-color: black;">
+  <h2 class="d-flex justify-content-center">Up Next</h2>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="bg-body-secondary">Col 1</div>
+      </div>
+      <div class="col">
+        <div class="bg-body-secondary">Col 2</div>
+      </div>
+      <div class="col">
+        <div class="bg-body-secondary">Col 3</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button (click)="shows()" class="btn" type="submit">BOTON</button>
+  </div>
+
+
+
+</section> -->
+
+<!-- <section style="background-color: black;">
+  <h2 class="d-flex justify-content-center">Up Next</h2>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor="let concert of concertList">
+
+
+
+      </div>
+
+
+    </div>
+  </div>
+
+  <div style="height: 200px; background-color: red;">
+    <button (click)="shows()" class="btn">BOTON</button>
+  </div>
+</section> -->
+
+
 <section style="background-color: black;">
   <h2 class="d-flex justify-content-center">Up Next</h2>
+
+  <!-- <div class="container-fluid">
+    <div class="row">
+      <div class="col-4" *ngFor="let concert of concertList" style="height: 200px;">
+
+        <h3 class="d-flex justify-content-center">{{ concert.name }}</h3>
+        <p class="d-flex justify-content-center">{{ concert.date }}</p>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <div class="container-fluid">
+    <div class="row">
+      <div class="col-4" *ngFor="let concert of concertList">
+        <div class="concert-box">
+          <h3 class=" justify-content-center">{{ concert.name }}</h3>
+          <p class="justify-content-center">{{ concert.date }}</p>
+
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4" *ngFor="let concert of concertList">
+        <div class="concert-box">
+
+
+          <div class="card">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z">
+              </path>
+            </svg>
+            <div class="card__content">
+              <p class="card__title"> {{ concert.name }} </p>
+              <p class="card__description">{{ concert.description }}</p>
+              <button class="card__button">Live Demo</button>
+              <button class="card__button secondary">Source Code</button>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6" style="color: white;">COL 1</div>
+      <div class="col-6" style="color: white;">COL 2</div>
+    </div>
+  </div>
+
+  <div style="height: 200px; background-color: red;">
+    <button (click)="shows()" class="btn">BOTON</button>
+  </div>
 </section>
