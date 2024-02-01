@@ -1,0 +1,18 @@
+nav {
+  background-color: transparent !important;
+}
+
+body {
+  position: relative;
+}
+
+.title {
+  color: white;
+  font-size: 10rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  position: absolute;
+  top: 0;
+  left: 1%;
+}

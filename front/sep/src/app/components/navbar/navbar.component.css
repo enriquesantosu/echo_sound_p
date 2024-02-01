@@ -1,3 +1,22 @@
 nav {
   background-color: transparent !important;
+  display: flex;
+  justify-content: row;
+  align-content: center;
+  flex-wrap: wrap;
+  z-index: 2;
+}
+
+.title {
+  position: relative;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 80px;
+  font-weight: 900;
+  font-style: italic;
+}
+
+a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

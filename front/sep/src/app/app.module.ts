@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
+import { NextShowsComponent } from './components/next-shows/next-shows.component';
 
 
 
@@ -20,7 +21,8 @@ import { CarrouselComponent } from './components/carrousel/carrousel.component';
     LoginComponent,
     LandingComponent,
     NavbarComponent,
-    CarrouselComponent
+    CarrouselComponent,
+    NextShowsComponent,
   ],
   imports: [
     BrowserModule,
